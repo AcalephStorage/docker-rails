@@ -2,14 +2,11 @@
 #
 # To be built and used as a base image for Rails apps. Uses ONBUILD commands to be executed in the app image
 
-FROM ubuntu:precise
+FROM ubuntu:trusty
 MAINTAINER acaleph "admin@acale.ph"
 
-RUN echo 'deb http://us.archive.ubuntu.com/ubuntu/ precise universe' >> /etc/apt/sources.list
-RUN apt-get -y update
-
 # make sure the package repository is up to date
-RUN apt-get install -y python-software-properties build-essential wget
+RUN apt-get install -y software-properties-common build-essential wget
 
 # Up to date Ruby Repo
 RUN apt-add-repository -y ppa:brightbox/ruby-ng
