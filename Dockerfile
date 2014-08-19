@@ -5,12 +5,13 @@
 FROM ubuntu:trusty
 MAINTAINER acaleph "admin@acale.ph"
 
+# make sure the package repository is up to date
+RUN apt-get update
+RUN apt-get install -y software-properties-common build-essential wget
+
 # Up to date Ruby Repo
 RUN apt-add-repository -y ppa:brightbox/ruby-ng
 RUN apt-get update
-
-# make sure the package repository is up to date
-RUN apt-get install -y software-properties-common build-essential wget
 
 # INSTALL SYSTEM DEPENDENCIES
 RUN apt-get install git sudo ruby2.1 ruby2.1-dev mysql-client libmysqlclient-dev net-tools libssl-dev sqlite3 libsqlite3-dev -y
